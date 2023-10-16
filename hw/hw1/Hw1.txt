@@ -1,0 +1,31 @@
+#Name: Xujia Qin
+
+
+a) Include a quick summary of how to run your program Golden.py: 
+
+
+First, I need to define the three functions, which are fibonacci(n), lucas(n), and golden_ratio(n).
+Because in the result table, it is required to show the six variables derived by the three functions above.
+
+Second, after indicating the functions, we need to initialize the variables by using the functions, which are n, fn, rn, Ln, n+1, f(n+1), r(n+1), L(n+1).  After getting the input from the user, we need to check if the input is within the proper range. If so, we gonna conduct the table, but if not, we have to throw the wrong message.
+
+Third, we have to specify the table formatting. Here I need to format the result values with certain placeholders, decimal numbers and left align, so I set the format with the expression '%-5d %-10d %-18.15f %-8d\'92.
+
+Finally, we need to print  the result table. It should be use a tuple % (the formatting we defined in the third step). 
+
+
+b) Include a quick summary of how to run the program LOL.py:
+
+
+First, according to the given code, we can print the  test string and two timestamps, which are the time when random string is generated and the time when we finished typing the input.
+
+Second, we need to calculate the elapsed time. Previously, the S1 and S2 are both string type, so we need to cast them into timestamp for the purpose of calculating the seconds  by using total_second() method.
+
+Then, we have to check if the user\'92s response is correct, or mismatch or wrong.\
+
+Finally, we need to keep three decimal places of the elapsed time, because no matter what response is, the elapsed time will be printed in the end, so I keep the print statement at the end.}
+
+    
+c) If any of the programs is not working, include what is the issue in your opinion and how would you fix it if you had more time?
+
+After running the two programs several times with different inputs, I think my programs are working correctly.

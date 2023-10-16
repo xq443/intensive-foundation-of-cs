@@ -1,0 +1,47 @@
+# hw2.txt
+# Name: Xujia Qin
+# Email: qin.xuj@northeastern.edu
+# Date: 13th Oct, 2023
+
+1. 
+
+I run my Siri.py module by first getting inside the working directory where the script 'Siri.py' is saved. Then I type "python Siri.py" in the terminal.
+This program is designed to transform a route string into a series of sequential driving instructions. It accepts English character combinations representing cardinal directions (N/W/E/S) as input. The output consists of multiple lines, encompassing the initial starter and intersection strings, the starter string, and the corresponding intersection instruction strings.
+
+First, the SiriSez(I) function is intended to receive two intersection strings as input parameters and generate a suitable intersection instruction string as its output. Several cases where it's supposed to turn left, right, continue straight and make a u-turn are listed.
+
+Next, the TripAdvisor(Route) function is designed to process a valid route string and produce a structured output comprising seven lines:
+1. The route string itself.
+2. The starter string associated with the route.
+A series of intersection instruction strings for each intersection along the route, extending from lines 3 to 7.
+To ensure boundary integrity, the final iteration of the loop concludes when 'i' equals 'len(Route) - 2'. This process recalls the SiriSez function for accurate instruction generation
+
+Essentially, the input chars should be validated, in which case I add up is_valid_direction function to ensure the input chars must be chosen from NESW.
+if there is invalid input character occurring, the program will end, and only proceed the valid parts before. 
+For example, EKEE will deliver: EKEE
+                                Start Driving East
+                                Invalid Intersection String
+             AEEE will deliver  Invalid direction input, character must be one of NESW.
+
+In the main application script, to ensure consistency, we check if the input has quotation marks at the beginning and end. If it does, we remove them using index slicing before passing the cleaned input to the TripAdvisor function.
+
+
+2.
+
+I run my Slash2Dash.py module by first getting inside the working directory wherethe script 'Slash2Dash.py' is saved. Then I type "python Slash2Dash.py" in the terminal.
+
+The program solicits a date string in slash format from the user, and transform it into dash format.
+
+Initially, we input the test case, with expecting an input date in slash format and that it will remove any leading or trailing single quotes or double quotes from the input.
+
+Then, we initialize variables to store the two slash indices as flags sign the indices of the slashes. We set a for loop of the string, we find the first index then flip the flag sign, after this, only the second index's flag is -1 at this time. Same here, if we find the second index then flip the flag sign as index itself.
+
+After that, we represent the month, day, and year by using index slicing. Before we set the expressions, we should also check whether both slash exist, otherwise, we throw an error message.
+
+In the next step, we check if month, day, and year slices contain only digits, because there will possibly be the cases that "_9/02/1902" which is an invalid month digit. After that, according to the rules given in the question, we convert month, day, and year slice if they are not formatted in the proper digits. 
+
+Finally, we concatenate these three slice with dash sign in between, and display the result as the program's output.
+
+c) If any of the programs is not working, include what is the issue in your opinion and how would you fix it if you had more time?
+
+    After running the two programs several times with different inputs, I think my programs are working correctly.
