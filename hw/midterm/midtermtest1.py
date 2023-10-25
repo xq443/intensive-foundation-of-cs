@@ -16,10 +16,16 @@ than or equal to 3. """
     
     n = len(s)
     t = s[1:n-1]
-    if(s[0] != s[n-1]):
+    if(s[0] == s[n-1]) and (t.count[s[0] == 0):
         return False
     elif(t.count(s[0]) >0):
         return False
     else:
         return True
 
+
+    n = len(s)
+    t = s[1:n-1]
+    if(s[0] == s[n-1]) and (t.count[s[0] == 0):
+        return True
+ 
