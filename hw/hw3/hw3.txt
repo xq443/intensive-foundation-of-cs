@@ -1,0 +1,40 @@
+# hw3.txt
+# Name: Xujia Qin
+# Email: qin.xuj@northeastern.edu
+# Date: 28th Oct, 2023
+a) Include a quick summary of how you run your program money_dispenser.py.
+
+To start with, I take the user input, and convert into decimal where precision is critical for the amount of money. Because the cent denomination is the least digit that will possibly occur in the input, it is convenient to manipulate the integer later on.
+
+Then, I define two lists, one is the denomination list to store twenties ($20), tens ($10), fives ($5), ones ($1), quarters (25 cents), dimes (10 cents), nickels (5 cents), and pennies (1 cents), the other is names list to store the corresponding names of those denominations.
+
+With creating a results list which is empty to expected to store the final results, I set up a for loop to iterate every element in the denomination list. First step is to get the largest cash, to solve this, I use the floor division // because it rounds the result down to the nearest whole number. Then, I tried to get the remainder of each denominations for the preparation of next denomination loop. 
+
+Before appending the digit to the result list, I found a problem that is to singularize "pennies" and "twentieth" for their singular count, the others can use string slicing to remove the last character which is "s". Then, when it encounters an example like input"12.02", we don't want to count the dime digit although its position has a number. So I set a condition count>0 to only consider the digits with count greater than 0.
+
+In the final step, I try to display the results in the sample output format, which is to print every element in the result list we delivered before.
+
+b) Include a quick summary of how you run your program Roman.py.
+
+The program checks the validity of a Roman numeral string based on various rules and calculates its numerical value. Here is a brief summary of how each function works:
+
+AllCharsOK(R): This function checks if all characters in the input string R are valid Roman numeral characters (M, D, C, L, X, V, I). It returns True if all characters are valid, and False otherwise.
+
+AllFreqsOK(R): This function checks if the frequency of each Roman numeral character in the input string R complies with the Roman numeral rules. For example, it ensures that 'M' occurs at most three times, 'D', 'C', 'X', and 'I' at most three times, and 'D', 'L', and 'V' at most once. It returns True if the frequencies are valid, and False otherwise.
+
+SingleOK(c, s, R): This function checks if a character c is either not in the input string R or if it's in R and not preceded by any character in the string s. It returns True if the conditions are met and False otherwise.
+
+AllSinglesOK(R): This function checks if the placement of single Roman numeral characters (M, D, C, L, X) in the input string R follows the rules. It uses the SingleOK function to check each character. It returns True if all singles are placed correctly and False otherwise.
+
+DoubleOK(s, R): This function checks if a double Roman numeral character (e.g., 'CD', 'CM') in the input string R follows the rules. It ensures that the double character appears either zero times or exactly once and that the first occurrence of the double character is the first occurrence of the character s[0]. It returns True if the conditions are met and False otherwise.
+
+AllDoublesOK(R): This function checks if the placement of double Roman numeral characters (CD, CM, XL, XC, IV, IX) in the input string R follows the rules. It uses the DoubleOK function to check each double character. It returns True if all doubles are placed correctly and False otherwise.
+
+Value(R): This function calculates the numerical value of a Roman numeral string without using a dictionary. It assigns numerical values to each Roman numeral character and iterates through the string to calculate the total value. It also checks for subtractive notations (e.g., 'CM', 'CD', 'XC', 'XL', 'IX', 'IV') and adjusts the value accordingly.
+
+Finally, in the main part of the script, the user is prompted to enter a Roman numeral string. The program then calls each of the functions to validate the input string and, if it's a valid Roman numeral, calculates and displays its numerical value. If the input is not a valid Roman numeral, it indicates that it's not valid.
+
+
+c) If any of the programs is not working, include what is the issue in your opinion and how would you fix it if you had more time?
+
+    After running the two programs several times with different inputs, I think my programs are working correctly.
