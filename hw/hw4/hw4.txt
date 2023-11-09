@@ -1,0 +1,29 @@
+# hw4.txt
+# Name: Xujia Qin
+# Email: qin.xuj@northeastern.edu
+# Date: Nov 11th, 2023
+Include a quick summary of how you run your program.
+
+The code begins by defining four functions, each responsible for generating a specific asterisk
+based shape: left_triangle, arrowhead, right_triangle, and boomerang. 
+
+These functions take a single argument, N, representing the size of the desired shape. 
+
+1. left_triangle(N): This function creates a left-aligned triangle by appending lines of asterisks, with each line having an increasing number of asterisks. It ensures that each line is left-aligned within a box of size N. 
+
+2. arrowhead(N): The arrowhead function generates a shape with a central peak and descending rows of asterisks on either side. It is designed to fit within a box of size N. 
+
+3. right_triangle(N): This function produces a right-aligned triangle with right aligned lines of asterisks within a box of size N. 
+
+4. boomerang(N): The boomerang function constructs a boomerang shape, consisting of two halves with ascending and descending asterisk patterns within a box of size N. 
+
+The code sets up the menu for selecting one of the available shapes or terminating the program (option 0). Users are prompted to enter their choice using the input function.To ensure robust error handling, try-except constructs are used to manage potential issues: 
+
+• The outermost try-except block handles exceptions related to the choice input (R). It ensures that R is an integer from 0,1,2,3,4 choice and provides an error message if not. 
+
+• The inner try-except block manages size input (N) and verifies that it is a positive integer and greater than or equal to 3. It also handles cases where N is not a valid integer and provides appropriate error messages. 
+
+
+b) If any of the programs is not working, include what is the issue in your opinion and how would you fix it if you had more time?
+
+    After running the two programs several times with different inputs, I think my programs are working correctly.
