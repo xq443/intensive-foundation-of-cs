@@ -1,9 +1,10 @@
 # shapes.py
 # Name: Xujia Qin
 # Email: qin.xuj@northeastern.edu
-# Date: Nov 11th, 2023
+# Date: Nov 10th, 2023
 
-""" A framework to generate asterisks shapes, including left triangle, arrowhead, right triangle and boomerang."""
+""" A framework to generate asterisks shapes, including left triangle, arrowhead, right triangle and boomerang.
+    The input will be the menu choice and size, the output will be the designed asterisks shapes strings. """
 
 def left_triangle (N):
     """
@@ -15,12 +16,12 @@ def left_triangle (N):
     Returns:
         string: contains a left triangle of the specified size
     """
-    result = ""
+    result = "" #intialize the result shape string
     for i in range(1, N + 1):
-        line = '*' * i
+        line = '*' * i #draw the asterisks shapes
         result += line.ljust(N)  # Left-align the line by padding with spaces
         if i < N:
-            result += '\n'
+            result += '\n' #the last line will not start a new line
     
     return result
     
@@ -35,13 +36,15 @@ def arrowhead(N):
     Returns:
         string: contains an arrowhead of the specified size
     """
-    result = ""
+    result = ""#intialize the result shape string
+    # upper part
     for i in range(1, N):
-        line = '*' * i
+        line = '*' * i   #draw the asterisks shapes
         result += line.ljust(N)  # Left-align the line by padding with spaces
         result += '\n'
+    #lower part
     for i in range(N,0, -1):
-        line = '*' * i
+        line = '*' * i    #draw the asterisks shapes
         result += line.ljust(N)  # Left-align the line by padding with spaces
         if i > 1:
             result += '\n'
@@ -58,9 +61,9 @@ def right_triangle(N):
     Returns:
         string: contains a right triangle of the specified size
     """
-    result = ""
+    result = "" #intialize the result shape string
     for i in range(N, 0, -1):
-        line = '*' * i
+        line = '*' * i  #draw the asterisks shapes
         result += line.ljust(N)  # Left-align the line by padding with spaces
         if i > 1:
             result += '\n'
@@ -81,24 +84,25 @@ def boomerang(N):
 
     # Upper part of the boomerang
     for i in range(1, N + 1):
-        line = '*' * i
-        left_spaces = ' ' * (2 * (N - 1)  - 2 * (i - 1)) 
-        right_spaces = ' ' * (i - 1)
-        result += left_spaces + line + right_spaces + '\n'
+        line = '*' * i  #draw the asterisks shapes
+        left_spaces = ' ' * (2 * (N - 1)  - 2 * (i - 1)) #draw the left part blanks
+        right_spaces = ' ' * (i - 1)  #draw the right part blanks
+        result += left_spaces + line + right_spaces + '\n' #concatenate left part blanks, asterisks shapes and right part blanks
         
 
     # Lower part of the boomerang
     for i in range(N - 1, 0, -1):
-        line = '*' * i
-        left_spaces = ' ' * (2 * (N - i))
-        right_spaces = ' ' * (i -1)   
-        result += left_spaces + line + right_spaces
+        line = '*' * i  #draw the asterisks shapes
+        left_spaces = ' ' * (2 * (N - i)) #draw the left part blanks
+        right_spaces = ' ' * (i -1)   #draw the right part blanks
+        result += left_spaces + line + right_spaces #concatenate left part blanks, asterisks shapes and right part blanks
         if i > 1:
             result += '\n'
 
     return result     
     
 if __name__ == '__main__':
+    print("Let's draw some shapes together:")
     while True:
         try:
             print("0 - nothing(terminate program)")
@@ -106,26 +110,27 @@ if __name__ == '__main__':
             print("2 - arrowhead")
             print("3 - right triangle")
             print("4 - boomerang"); 
-            R = input('Enter choice: ')
+            R = input('Enter choice: ') #user input
             try: 
-                R = int(R)
+                R = int(R) #cast integer, if cannot case, the type of input is another type, proceed to exception error message
             except:
                 print("\nInvalid choice, try again\n") # Exclude the float and string type
                 continue
 
-            if R == 0:
+            if R == 0: #terminate the program
                 print("\nThank you for drawing shapes with me!\n")
                 break
                 
             elif R in [1,2,3,4]:
                 while True:
                     try:
-                        N = int(input("Enter size (>= 3): "))
+                        N = int(input("Enter size (>= 3): ")) #cast integer, if cannot case, the type of input is another type, proceed to exception error message
                     except ValueError:
                         print("\nSize should be a positive integer!")  # Exclude the string and float type
                     else:
                         try:
                             if N >= 3:
+                                #call the functions to draw shapes correspondingly
                                 if R == 1:
                                     shape = left_triangle(N)
                                 elif R == 2:

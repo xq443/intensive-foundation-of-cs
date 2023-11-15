@@ -1,7 +1,7 @@
 # hw4.txt
 # Name: Xujia Qin
 # Email: qin.xuj@northeastern.edu
-# Date: Nov 11th, 2023
+# Date: Nov 10th, 2023
 Include a quick summary of how you run your program.
 
 The code begins by defining four functions, each responsible for generating a specific asterisk
@@ -15,7 +15,7 @@ These functions take a single argument, N, representing the size of the desired 
 
 3. right_triangle(N): This function produces a right-aligned triangle with right aligned lines of asterisks within a box of size N. 
 
-4. boomerang(N): The boomerang function constructs a boomerang shape, consisting of two halves with ascending and descending asterisk patterns within a box of size N. 
+4. boomerang(N): The boomerang function constructs a boomerang shape, consisting of two halves with ascending and descending asterisk patterns within a box of size N. The final shapes will be the concatenation of left part blanks, asterisks shapes and right part blanks.
 
 The code sets up the menu for selecting one of the available shapes or terminating the program (option 0). Users are prompted to enter their choice using the input function.To ensure robust error handling, try-except constructs are used to manage potential issues: 
 
