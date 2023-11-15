@@ -1,0 +1,53 @@
+# Stack_built_in.py
+# The instructor
+# March 2023
+
+""" Implements the Stack ADT using Python list data type."""
+
+class Stack:
+    def __init__(self, size):
+        self.data = list() #an empty list to store stack data
+        self.size = size
+        
+
+    def push(self, item):
+        if len(self.data) >= self.size: #check if stack is full
+            print("Stack full!")
+            return
+        else:
+            self.data.append(item)
+
+    def pop(self):
+        if len(self.data) <=0: #check if stack is empty
+            print("Stack empty!")
+            return
+        else:
+            return self.data.pop()
+
+    def print_stack(self): #helper function to help with debugging.
+        for i in range(len(self.data) -1, -1, -1): #print stack top down
+            print(self.data[i])
+        
+
+
+#main script below
+
+my_stack = Stack(6)#create a new stack with size=6
+
+#ask user what they want to do with the stack
+while True:
+    cmd = input("push, pos, print_stack, or exit?")
+    if cmd == "push":
+        value = input("Enter the item to push on stack: ")
+        my_stack.push(value)
+    elif cmd == "pop":
+        value = my_stack.pop()
+        print("pop() rturned ", value)
+        
+    elif cmd == "print_stack":
+        my_stack.print_stack()
+    elif cmd=="exit":
+        break
+    else:
+        #Invalid option
+        print("Please try again!") 
