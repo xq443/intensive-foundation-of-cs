@@ -1,0 +1,19 @@
+# hw5.txt
+# Name: Xujia Qin
+# Email: qin.xuj@northeastern.edu
+# Date: Nov 27th, 2023
+
+a) Include a quick summary of how you run your program.
+
+The code in "CloseWords.py" implements string comparison methods to assess closeness between words based on specific criteria. The module defines various functions to evaluate the proximity of two strings: offByOne checks if two strings differ by only one character, offBySwap identifies whether two strings are off-by-one by swapping adjacent characters, and offByExtra determines if two strings differ by an extra character. 
+
+Each function meticulously examines the input strings, considering character swaps, deletions, or additions to ascertain their closeness. These functions employ nested iterations and conditional checks to meticulously compare the characters in the strings and count differences, enabling accurate evaluation of their proximity. Additionally, helper functions such as ListOfDeleteOnes and checkEqual (This is the helper function of offBySwap(s1, s2) to check if the characters in specified sections of two strings are equal) assist in generating modified strings and checking equality within specified string sections, respectively.
+
+Moreover, the module incorporates functionality to calculate the Scrabble score of a given string using the ScrabbleScore function, considering the distribution and values assigned to each letter in the game. 
+
+The main() function showcases the module's capabilities by repeatedly prompting users for input strings consisting solely of lowercase letters. As followed by the question requirement, the while loop body will break as soon as the string s is made up entirely of lowercase letters. Upon receiving compliant input, the program identifies the neighbors of the input string based on the closeness criteria, displaying their respective Scrabble scores. It further extends this analysis by presenting the neighbors of the neighbors and their corresponding Scrabble scores. 
+
+
+b) If any of the programs is not working, include what is the issue in your opinion and how would you fix it if you had more time?
+
+    After running the two programs several times with different inputs, I think my programs are working correctly.

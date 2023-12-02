@@ -176,8 +176,6 @@ def ListOfNeighbors2(s, L):
             neighbors_of_neighbors.append(n)
     
     return sorted(set(neighbors_of_neighbors)) # Return sorted list（type cast from  set) of unique neighbors of neighbors
-
-
     
 
 def ScrabbleScore(s):
@@ -187,26 +185,34 @@ def ScrabbleScore(s):
     (of any, or mixed, case).
     """
     Letters = string.ascii_uppercase
-            #A B C D  E F G H I J K L M N O P  Q R S T U V W X Y  Z
-    Supply= [9,2,2,4,12,2,3,2,9,1,1,4,2,6,8,2, 1,6,4,6,4,2,2,1,2, 1]
-    Value = [1,3,3,2, 1,4,2,4,1,8,5,1,3,1,1,3,10,1,1,1,1,4,4,8,4,10]
+    # Letter distribution and values for each letter in the game of Scrabble
+    Supply = [9, 2, 2, 4, 12, 2, 3, 2, 9, 1, 1, 4, 2, 6, 8, 2, 1, 6, 4, 6, 4, 2, 2, 1, 2, 1]
+    Value = [1, 3, 3, 2, 1, 4, 2, 4, 1, 8, 5, 1, 3, 1, 1, 3, 10, 1, 1, 1, 1, 4, 4, 8, 4, 10]
 
-    # you write the rest!
+    s = s.upper()  # Convert input string to uppercase
+    scrabbleScore = 0  # Initialize the total score as 0
+
+    # Iterate through each letter in the input string
+    for letter in s:
+        i = Letters.find(letter)
+        # Check if the count of a letter in the input string is greater than available supply
+        if s.count(letter) > Supply[i]:
+            return 0  # Return 0 if the word uses more tiles than available
+
+        scrabbleScore += Value[i]  # Add the value of the letter to the total score
+
+    return scrabbleScore  # Return the total Scrabble score of the input string
 
 def testem():
     """Skeleton of code you can use to test your functions.
     Use of this (kind of) function is optional."""
-    # you can add to/modify this function as you like, or ignore it completely.
-
-    # test offByOne
-    for answer in [["abcd", "abxcd", True],
-                    ["abxcd", "abcd", True],
-                    ["abcda", "abcd", True],
-                    ["abcd", "bcda", False],
-                    ["abcd", "abcdef", False],
-                    ["abcd", "abcd", False]
+    
+    for answer in [["abcd", "abcd", False],
+                    ["abcd", "bacd", True],
+                    ["abcd", "abdc", True],
+                    ["abcdef", "abcdfe", True]
                    ]:
-        response = offByExtra(answer[0], answer[1])
+        response = offBySwap(answer[0], answer[1])
         right = answer[2]
         if response != right:
             print ("problem with", answer)
@@ -217,35 +223,28 @@ def testem():
 
 def main():
     """Showcases the code in this module."""
-    testem()
-    
-
- 
-    # Skeleton below. Modify according to the assignment instructions (and then
-    # remove this comment.)
-
     # Read in the list of English words ...
-    #L = fileToStringList('EnglishWords.txt')
+    L = fileToStringList('EnglishWords.txt')
 
-    # # Until the user complies, keep prompting for a string of lowercase letters.
-   
+    # Until the user complies, keep prompting for a string of lowercase letters.
+    while True:
+        s = input('Enter a nonempty string of lowercase letters: ')
+        if all(char in string.ascii_lowercase for char in s): # Check if the input string is entirely composed of lowercase letters
+            break #The while loop body should break as soon as the string s is made up entirely of lowercase letters;
+        
+        # Print all the neighbors of s and their Scrabble scores...
+        print ('\nNeighbors...\n')
+        for neighbor in ListOfNeighbors(s, L): # ListOfNeighbors(s, L) retrieves neighbors of the input string 's'
+            score = ScrabbleScore(neighbor) # For each neighbor, it prints the neighbor's string and its corresponding Scrabble score.
+            print(neighbor, score) #For each neighbor, it prints the neighbor's string and its corresponding Scrabble score.
+        
+        # Print all the neighbors of the neighbors of s and their Scrabble scores...
+        print ('\nNeighbors of the Neighbors...\n')
+        for neighbor_of_neighbor in ListOfNeighbors2(s, L): #ListOfNeighbors2(s, L) retrieves neighbors of neighbors of the input string 's'
+            score = ScrabbleScore(neighbor_of_neighbor) # iterates through each neighbor to calculate and print its Scrabble score.
+            print(neighbor_of_neighbor, score) #For each neighbor of the neighbor, it prints the string and its corresponding Scrabble score.
     
-    
-    #while True:
-        #s = input('Enter a nonempty string of lowercase letters: ')
-
-    # Print all the neighbors of s and their Scrabble scores...
-    #print ('\nNeighbors...\n')
-
-
-
-    # Print all the neighbors of the neighbors of s and their Scrabble scores...
-    #print ('\nNeighbors of the Neighbors...\n')
-
 if __name__ == '__main__':
-
-    #testem()  # You can uncomment this to use the testing function if you want
-
-    main() # Call to your main function
+    main() # Call to the main function
 
 

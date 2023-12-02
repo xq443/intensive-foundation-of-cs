@@ -126,4 +126,10 @@ import CloseWords
 #     print(fib(4))
     
 # print((4**3) % 23)
-print(CloseWords.offByOne("read", "rexd"))
+# print(CloseWords.offByOne("read", "rexd"))
+import string
+while True:
+    s = input('Enter a nonempty string of lowercase letters: ')
+    if all(char in string.ascii_lowercase for char in s):
+        break
+    print("not all is lower")
